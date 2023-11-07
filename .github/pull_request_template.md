@@ -1,12 +1,3 @@
----
-name: Pull Request
-about: Template for submitting changes to the codebase
-title: ''
-labels: ''
-assignees: ''
-
----
-
 ## Description
 <!--- Provide a general summary of your changes in the Title above -->
 
