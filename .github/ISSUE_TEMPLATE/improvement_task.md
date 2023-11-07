@@ -1,7 +1,7 @@
 ---
 name: Improvement Task
 about: Template for proposing code maintenance and quality improvement tasks
-title: '[IMPROVEMENT] '
+title: '[IMPROVEMENT]: '
 labels: 'enhancement, maintenance'
 assignees: ''
 

@@ -1,7 +1,7 @@
 ---
 name: Feature Implementation
 about: Template for implementing new features or improvements
-title: '[IMPLEMENT] '
+title: '[FEATURE]: '
 labels: 'enhancement'
 assignees: ''
 

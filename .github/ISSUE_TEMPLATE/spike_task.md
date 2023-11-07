@@ -1,7 +1,7 @@
 ---
 name: Spike/Research Task
 about: Template for proposing research or exploration tasks to gather information or solve a specific problem
-title: '[SPIKE] '
+title: '[SPIKE]: '
 labels: 'research, spike'
 assignees: ''
 
