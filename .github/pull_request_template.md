@@ -6,9 +6,9 @@
 <!--- If suggesting a new feature or change, please discuss it in an issue first -->
 <!--- If fixing a bug, there should be an issue describing it with steps to reproduce -->
 <!--- Please link to the issue using one of the below options: -->
-- Relates to # (issue)
-- Fixes # (issue)
-- Closes # (issue)
+- Related to: #(issue)
+- Fixes: #(issue)
+- Closes: #(issue)
 
 ## Type of Change
 
