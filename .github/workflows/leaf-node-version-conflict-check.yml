@@ -1,0 +1,152 @@
+name: Check for @vitalcard Leaf Node Package Version Conflicts
+
+on:
+  pull_request:
+    branches: [main, production]
+
+jobs:
+  check-package-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Check for @vitalcard/ Package Version Conflicts
+        run: |
+          # Step 1: Initialize map of all libraries we want to check for version conflicts
+          declare -A vitalcard_versions
+          vitalcard_versions=(
+            ["@vitalcard/client-library"]=""
+            ["@vitalcard/cardholder-api-client"]=""
+            ["@vitalcard/credit-apps-api-client"]=""
+            ["@vitalcard/error-library"]=""
+            ["@vitalcard/typescript-library"]=""
+            ["@vitalcard/cardholder-api"]=""
+            ["@vitalcard/credit-api"]=""
+            ["@vitalcard/logger"]=""
+            ["@vitalcard/http-client"]=""
+            ["@vitalcard/lambda-library"]=""
+          )
+
+          # Normalizes version strings (removes ^, ~, etc.)
+          normalize_version() {
+            echo "$1" | sed 's/^[^0-9]*\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'
+          }
+
+          # Adds a version to the vitalcard_versions array for a given library, to later check for discrepancies
+          add_version() {
+            local lib=$1
+            local version=$2
+
+            # Normalize the version
+            normalized_version=$(normalize_version "$version")
+
+            # Skip adding the version if it's an asterisk (*)
+            if [[ "$normalized_version" == "*" ]]; then
+              echo "Skipping version * for $lib"
+              return
+            fi
+
+            echo "Adding version $normalized_version for $lib"
+
+            # Append the version to the list of versions for the library
+            vitalcard_versions["$lib"]="${vitalcard_versions[$lib]} $normalized_version"
+          }
+
+          # Step 2: Traverse all @vitalcard/ packages and their dependencies
+          jq -r '
+          .packages | to_entries[] |
+          select(.key | startswith("node_modules/@vitalcard/")) |
+          select(.value != null) |
+          select(.value.version != null) |
+          "\(.key):\(.value.version)"
+          ' package-lock.json > extracted-packages.txt || true
+
+          # Step 3: Process each package and its dependencies
+          while IFS=":" read -r lib version; do
+            echo "Processing $lib with version $version"
+
+            # Use the full library name (including @vitalcard/)
+            base_lib="${lib#node_modules/}"
+
+            # Check if the library is one of the specific libraries we care about
+            if [[ -v "vitalcard_versions[$base_lib]" ]]; then
+              add_version "$base_lib" "$version"
+            else
+              echo "$base_lib is not in the predefined list of libraries."
+            fi
+
+            # Handle inner-dependencies
+            dependencies=$(jq -r ".packages[\"$lib\"].dependencies | to_entries[]? | select(.key | startswith(\"@vitalcard/\")) | select(.value != null) | \"\(.key):\(.value)\"" package-lock.json || true)
+
+            echo "Processing dependencies for $lib: $dependencies"  # Debug output
+
+            if [[ -z "$dependencies" ]]; then
+              echo "No dependencies found or error processing dependencies for $lib"
+              continue
+            fi
+
+            while IFS=":" read -r dep_name dep_version; do
+              if [[ -v "vitalcard_versions[$dep_name]" ]]; then
+                add_version "$dep_name" "$dep_version"
+              else
+                echo "$dep_name is not in the predefined list of libraries."
+              fi
+            done < <(echo "$dependencies")  # Using process substitution to avoid subshells
+
+          done < extracted-packages.txt
+
+          # Step 4: Print out the map for full summarized view of all package versions
+          echo "Map of @vitalcard/ libraries and their versions:"
+          for lib in "${!vitalcard_versions[@]}"; do
+            echo "$lib:${vitalcard_versions[$lib]}"
+          done
+
+          # Step 5: Check for discrepancies in the map
+          discrepancies=()
+          for lib in "${!vitalcard_versions[@]}"; do
+            # Get unique versions
+            unique_versions=$(echo "${vitalcard_versions[$lib]}" | tr ' ' '\n' | sort | uniq | tr '\n' ' ' | sed 's/[[:space:]]*$//')
+
+            # Count the number of unique versions
+            unique_count=$(echo "$unique_versions" | wc -w)
+
+            # Check if there are multiple unique versions
+            if [[ $unique_count -gt 1 ]]; then
+              discrepancies+=("$lib has multiple versions: $unique_versions")
+            fi
+          done
+
+          # Report any discrepancies
+          if [[ ${#discrepancies[@]} -ne 0 ]]; then
+            echo "=================================================="
+            echo "                FINAL VERSION CHECK               "
+            echo "=================================================="
+            echo
+            echo "Version conflicts detected for the following @vitalcard/ libraries:"
+            echo "--------------------------------------------------"
+            for discrepancy in "${discrepancies[@]}"; do
+              echo "$discrepancy"
+            done
+            echo
+            echo "=================================================="
+            echo "                 END OF CHECK                     "
+            echo "=================================================="
+            echo
+            exit 1
+          else
+            echo "=================================================="
+            echo "                FINAL VERSION CHECK               "
+            echo "=================================================="
+            echo
+            echo "No version conflicts detected."
+            echo
+            echo "=================================================="
+            echo "                 END OF CHECK                     "
+            echo "=================================================="
+            echo
+          fi
