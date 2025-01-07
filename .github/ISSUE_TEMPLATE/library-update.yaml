@@ -3,6 +3,14 @@ description: Update specific dependencies of the project
 title: "[IMPROVEMENT]: Update <name> library from <version-from> to <version-to>"
 labels: ["enhancement", "maintenance", "tech-debt"]
 body:
+ - type: input
+    id: library-name
+    attributes:
+      label: Library name
+      description: The name of the library/dependency of the project
+      placeholder: library-name
+    validations:
+      required: false
   - type: input
     id: version-from
     attributes:
@@ -21,8 +29,7 @@ body:
       required: false
   - type: textarea
     attributes:
-      label: Current Behavior
-      description: desc
+      label: Strategy/Requirements
       value: |
         Update dependencies, and verify functionality.
         The library should be updated from the current to the target version.
