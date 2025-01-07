@@ -1,4 +1,4 @@
-name: Library update Task
+name: Update library/dependency task
 description: Update specific dependencies of the project
 title: "[IMPROVEMENT]: Update <name> library from <version-from> to <version-to>"
 labels: ["enhancement", "maintenance", "tech-debt"]
@@ -24,9 +24,9 @@ body:
       label: Current Behavior
       description: desc
       value: |
-      Update dependencies, and verify functionality.
-      The library should be updated from the current to the target version.
-      The changelog should be checked for any backward compatibility issues and breaking changes.
+        Update dependencies, and verify functionality.
+        The library should be updated from the current to the target version.
+        The changelog should be checked for any backward compatibility issues and breaking changes.
     validations:
       required: false
   - type: textarea
