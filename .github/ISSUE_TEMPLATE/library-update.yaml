@@ -1,0 +1,71 @@
+name: Library update Task
+description: Update specific dependencies of the project
+title: "[IMPROVEMENT]: Update <name> library from <version-from> to <version-to>"
+labels: ["enhancement", "maintenance", "tech-debt"]
+body:
+  - type: input
+    id: version-from
+    attributes:
+      label: From Version
+      description: current version
+      placeholder: ex. v1.0.1
+    validations:
+      required: false
+  - type: input
+    id: version-to
+    attributes:
+      label: Target Version
+      description: target version
+      placeholder: ex. v1.0.2
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Current Behavior
+      description: desc
+      value: |
+      Update dependencies, and verify functionality.
+      The library should be updated from the current to the target version.
+      The changelog should be checked for any backward compatibility issues and breaking changes.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Tasks
+      description: The list of tasks
+      value: |
+        - [ ] Check changelog
+        - [ ] Update the library
+        - [ ] Update Unit tests if needed
+        - [ ] Remove PRs created automatically by Dependabot (if any are left)
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Acceptance Criteria
+      description: What should be checked to confirm the changes made work as expected?
+      value: |
+        - Dependencies are updated
+        - Functionality still works
+        - Unit tests run successfully
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Future Considerations
+      description: |
+        Is there anything we should consider for future changes?
+      value: "n/a"
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Notes
+      description: Any extra notes for context or testing
+      value: |
+        _Extra notes: e.g. Changes should be checked carefully for both iOS and Android platforms._
+    validations:
+      required: false
