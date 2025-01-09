@@ -1,4 +1,4 @@
-name: Create/update documentation
+name: Documentation
 description: Prepare documentation for the feature/system/data flow/process/etc
 title: "[Docs]: Prepare documentation for <feature/component/process>"
 labels: ["docs", "tech-debt"]
