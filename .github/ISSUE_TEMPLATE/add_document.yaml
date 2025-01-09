@@ -1,0 +1,38 @@
+name: Create/update documentation
+description: Prepare documentation for the feature/system/data flow/process/etc
+title: "[Docs]: Prepare documentation for <feature/component/process>"
+labels: ["docs", "tech-debt"]
+body:
+  - type: input
+    id: doc-description
+    attributes:
+      label: Description
+      description: Brief description of the document that should be prepared
+      placeholder: e.g. Data flow diagram for API
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Requirements/Tasks
+      description: What needs to be documented/described
+      value: |
+        - [ ] Prepare data flow diagram and publish it to the Gihub repo
+        - [ ] Update <ABC> Wiki page with <XYZ> details, etc
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Expected outcome
+      description: What/where should be published once the documents are ready
+      value: |
+        - Links to the Wiki/Github repo/Sharepoint/etc
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Notes
+      description: Any extra notes for context
+      value: n/a
+    validations:
+      required: false
