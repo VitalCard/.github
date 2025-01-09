@@ -3,14 +3,6 @@ description: Prepare documentation for the feature/system/data flow/process/etc
 title: "[Docs]: Prepare documentation for <feature/component/process>"
 labels: ["documentation", "tech-debt"]
 body:
-  - type: input
-    id: doc-description
-    attributes:
-      label: Description
-      description: Brief description of the document that should be prepared
-      placeholder: e.g. Data flow diagram for API
-    validations:
-      required: false
   - type: textarea
     attributes:
       label: Requirements/Tasks
