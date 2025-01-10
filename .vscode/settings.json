@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
         "Vitalcard"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#10332A",
+        "titleBar.activeBackground": "#16483B",
+        "titleBar.activeForeground": "#F4FBF9"
+    }
 }
