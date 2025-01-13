@@ -48,12 +48,13 @@ body:
     attributes:
       label: Time Box
       description: Set the maximum amount of time to be spent on this spike. Spikes should typically be time-boxed to avoid rabbit holes.
-      placeholder: 2 days
+      value: 1-2 days
     validations:
       required: false
   - type: textarea
     attributes:
       label: Outcomes
       description: Describe the potential outcomes of this spike. This could range from a decision on a way forward, a recommendation, or more questions that need to be answered.
+      value: The summary which indicates what needs to be done to achieve the goal.
     validations:
       required: false
