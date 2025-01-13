@@ -1,0 +1,59 @@
+name: Spike/Research Task
+description: Template for proposing research or exploration tasks to gather information or solve a specific problem
+title: "[SPIKE]: "
+labels: ["research", "spike"]
+body:
+  - type: textarea
+    attributes:
+      label: Objective
+      description: Describe the goal of this spike. What information are we trying to gather, or what problem are we aiming to solve?
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Background
+      description: Provide any background information that's relevant to this research. Include links to documents, previous discussions, or any external content that may be pertinent.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Key Questions
+      description: List the main questions we aim to answer with this research.
+      value: |
+        - Question 1
+        - Question 2
+        - Question 3
+        - ...
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Resources
+      description: Identify any resources that might be helpful. This could include subject matter experts, documentation, existing code, or third-party services.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Method
+      description: Outline the method of research or how you plan to conduct the spike. It might include steps such as literature review, experimentation, data analysis, or prototyping.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Acceptance Criteria
+      description: Specify how we will decide if the spike was successful. What deliverables are expected? For example, a report, a proof-of-concept, or a set of recommendations.
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Time Box
+      description: Set the maximum amount of time to be spent on this spike. Spikes should typically be time-boxed to avoid rabbit holes.
+      placeholder: 2 days
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Outcomes
+      description: Describe the potential outcomes of this spike. This could range from a decision on a way forward, a recommendation, or more questions that need to be answered.
+    validations:
+      required: false
