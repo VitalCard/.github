@@ -54,6 +54,8 @@ body:
         - Chrome browser
         - Firefox browser
         - Safari browser
+        - Edge browser
+        - Other
       default: 2
     validations:
       required: false
