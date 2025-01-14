@@ -2,6 +2,7 @@ name: Spike/Research Task
 description: Template for proposing research or exploration tasks to gather information or solve a specific problem
 title: "[SPIKE]: "
 labels: ["research", "spike"]
+projects: ["VitalCard/7"]
 body:
   - type: textarea
     attributes:
