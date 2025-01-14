@@ -31,7 +31,7 @@ body:
     attributes:
       label: Tasks
       description: Provide a list of actionable items that need to be completed to meet the objectives of the task.
-      value:
+      value: |
         - [ ] Task 1
         - [ ] Task 2
         - [ ] Task 3
