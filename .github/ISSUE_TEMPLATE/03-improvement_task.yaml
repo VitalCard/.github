@@ -1,0 +1,65 @@
+name: Improvement Task
+description: Template for proposing code maintenance and quality improvement tasks
+title: "[IMPROVEMENT]: "
+labels: ["enhancement"]
+body:
+  - type: input
+    attributes:
+      label: Description
+      description: Briefly describe the improvement task, including the area of the codebase it relates to and the reason for the proposed changes.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Objectives
+      description: List the outcomes the task aims to achieve, and what will be improved upon its completion.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Strategy/Requirements
+      description: Detail the strategy for accomplishing the objectives, including any specific requirements that must be met.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Resources
+      description: Identify any resources that might be helpful. This could include subject matter experts, documentation, existing code, or third-party services.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Tasks
+      description: Provide a list of actionable items that need to be completed to meet the objectives of the task.
+    value:
+      - [ ] Task 1
+      - [ ] Task 2
+      - [ ] Task 3
+      - ...
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Acceptance Criteria
+      description: Define the criteria that will be used to determine if the task has been successfully completed.
+      value: |
+        - Criterion 1
+        - Criterion 2
+        - Criterion 3
+        - ...
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Future Considerations
+      description: Mention any potential future improvements or maintenance tasks that may follow as a result of this work.
+      placeholder: Note any dependencies on other projects, features, or updates.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Notes
+      description: Describe the potential outcomes of this spike. This could range from a decision on a way forward, a recommendation, or more questions that need to be answered.
+      value: The summary which indicates what needs to be done to achieve the goal.
+    validations:
+      required: false
