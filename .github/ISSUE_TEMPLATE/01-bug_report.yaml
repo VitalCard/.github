@@ -33,7 +33,7 @@ body:
       description: If applicable, add screenshots to help explain your problem.
     validations:
       required: false
-- type: dropdown
+  - type: dropdown
     attributes:
       label: Environment
       description: What environment did the bug occur in?
