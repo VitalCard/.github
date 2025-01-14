@@ -1,0 +1,72 @@
+name: Bug Report
+description: Create a report to help us improve
+title: "[BUG]: "
+labels: ["bug"]
+projects: ["VitalCard/7"]
+body:
+  - type: input
+    attributes:
+      label: Describe the Bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+- type: dropdown
+    attributes:
+      label: Environment
+      description: What environment did the bug occur in?
+      options:
+        - Staging
+        - Production
+      default: Staging
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Platform/Browser
+      description: What browser or app did the bug occur in?
+      options:
+        - iOS app
+        - Android app
+        - Chrome browser
+        - Firefox browser
+        - Safari browser
+      default: Staging
+    validations:
+      required: false
+  - type: input
+    attributes:
+      label: App Version
+      description: What app version was used (in case of mobile app)?
+      placeholder: for website just leave ``n/a``
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here.
+      value: n/a
+    validations:
+      required: false
