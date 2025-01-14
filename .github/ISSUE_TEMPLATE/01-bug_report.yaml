@@ -40,7 +40,7 @@ body:
       options:
         - Staging
         - Production
-      default: Staging
+      default: 0
     validations:
       required: false
   - type: dropdown
@@ -50,10 +50,11 @@ body:
       options:
         - iOS app
         - Android app
+        - both Android and iOS apps
         - Chrome browser
         - Firefox browser
         - Safari browser
-      default: Staging
+      default: 2
     validations:
       required: false
   - type: input
