@@ -23,7 +23,7 @@ body:
   - type: textarea
     attributes:
       label: Strategy/Requirements
-      description: Detailed requirements and strategy for the implementation of this feature. This may include:
+      description: Detailed requirements and strategy for the implementation of this feature.
       placeholder: |
         - Step-by-step implementation details
         - UX/UI designs and flowcharts
