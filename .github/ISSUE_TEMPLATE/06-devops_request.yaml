@@ -24,8 +24,8 @@ body:
       required: false
   - type: textarea
     attributes:
-      label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
+      label: Why we need this?
+      description: Provide the reason of this request
       value: e.g. Reduce the cost of the infrastructure
     validations:
       required: false
