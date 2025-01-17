@@ -1,0 +1,60 @@
+name: DevOps Request
+description: Create DevOps / Infrastructure request
+title: "[DevOps]: "
+labels: ["devops"]
+projects: ["VitalCard/7"]
+assignees:
+  - pranavvitalcard
+body:
+  - type: input
+    attributes:
+      label: Description
+      description: Short summary of the request
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: What needs to be done
+      description: Provide the list of the tasks that need to be done
+      value: |
+        1. Setup XYZ
+        2. Provide documentation for ABC
+        3. etc
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      value: e.g. Reduce the cost of the infrastructure
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Expected output
+      description: What should be the output of the request
+      value: |
+        1. Summary of the resources which were updated / removed
+        2. document shared at Sharepoint, etc
+        3. etc
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Environment
+      description: What environment is in question?
+      options:
+        - Staging
+        - Production
+        - Both
+        - None
+      default: 0
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other context about the request
+      value: n/a
+    validations:
+      required: false
