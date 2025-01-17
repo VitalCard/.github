@@ -6,12 +6,6 @@ projects: ["VitalCard/7"]
 assignees:
   - pranavvitalcard
 body:
-  - type: input
-    attributes:
-      label: Description
-      description: Short summary of the request
-    validations:
-      required: false
   - type: textarea
     attributes:
       label: What needs to be done
