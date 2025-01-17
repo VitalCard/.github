@@ -28,8 +28,8 @@ body:
       label: Expected output
       description: What should be the output of the request
       value: |
-        1. Summary of the resources which were updated / removed
-        2. document shared at Sharepoint, etc
+        1. Summary of the resources which were updated/removed
+        2. Document shared at Sharepoint
         3. etc
     validations:
       required: false
