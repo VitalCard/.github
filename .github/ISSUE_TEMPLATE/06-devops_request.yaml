@@ -2,6 +2,7 @@ name: DevOps Request
 description: Create DevOps / Infrastructure request
 title: "[DevOps]: "
 labels: ["devops"]
+type: task
 projects: ["VitalCard/7"]
 assignees:
   - pranavvitalcard

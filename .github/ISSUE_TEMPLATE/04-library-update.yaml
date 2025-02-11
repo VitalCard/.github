@@ -2,6 +2,7 @@ name: Update library/dependency task
 description: Update specific dependencies of the project
 title: "[IMPROVEMENT]: Update <name> library from <version-from> to <version-to>"
 labels: ["enhancement", "maintenance", "tech-debt"]
+type: task
 projects: ["VitalCard/7"]
 body:
   - type: input
