@@ -3,6 +3,7 @@ description: Template for proposing code maintenance and quality improvement tas
 title: "[IMPROVEMENT]: "
 labels: ["enhancement"]
 projects: ["VitalCard/7"]
+type: task
 body:
   - type: input
     attributes:
