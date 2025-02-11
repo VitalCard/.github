@@ -2,6 +2,7 @@ name: Feature Implementation
 description: Template for implementing new features or improvements
 title: "[FEATURE]: "
 labels: ["enhancement"]
+type: feature
 projects: ["VitalCard/7"]
 body:
   - type: input

@@ -2,6 +2,7 @@ name: Documentation
 description: Prepare documentation for the feature/system/data flow/process/etc
 title: "[Docs]: Prepare documentation for <feature/component/process>"
 labels: ["documentation", "tech-debt"]
+type: task
 projects: ["VitalCard/7"]
 body:
   - type: textarea
