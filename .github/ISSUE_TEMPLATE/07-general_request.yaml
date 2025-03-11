@@ -1,0 +1,52 @@
+name: Generic Request
+description: Generic request
+title: "[Task]: "
+type: task
+projects: ["VitalCard/7"]
+body:
+  - type: textarea
+    attributes:
+      label: What needs to be done
+      description: Provide the list of the tasks that need to be done
+      value: |
+        1. Review error logs
+        2. Investigate the source of the issue
+        3 Prepare the fix
+        4. Update Unit tests
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Why we need this?
+      description: Provide the reason of this request
+      value: e.g. Alert received based on the error logs
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Expected output
+      description: What should be the output of the request
+      value: |
+        1. Changes made to avoid the error message reported
+        2. Extra unit tests to cover the found edge case(s)
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Environment
+      description: What environment is in question?
+      options:
+        - Staging
+        - Production
+        - Both Prod and Staging
+        - Not Environment Specific
+      default: 0
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other context about the request
+      value: n/a
+    validations:
+      required: false
