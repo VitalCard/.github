@@ -1,5 +1,5 @@
-name: General Request
-description: Create DevOps / Infrastructure request
+name: Generic Request
+description: Generic request
 title: "[Task]: "
 type: task
 projects: ["VitalCard/7"]
